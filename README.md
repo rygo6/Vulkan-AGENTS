@@ -17,7 +17,7 @@ A Claude Code skill that answers Vulkan and MoltenVK questions by referencing lo
 Clone with `--recurse-submodules` — the reference repos are git submodules:
 
 ```bash
-git clone --recurse-submodules https://github.com/rygo6/Vulkan-Claude.git ~/.claude/skills/vulkan
+git clone --recurse-submodules https://github.com/rygo6/Vulkan-AGENTS.git ~/.claude/skills/vulkan
 cd ~/.claude/skills/vulkan
 git submodule update --remote
 ```
