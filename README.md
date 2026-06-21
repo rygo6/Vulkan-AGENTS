@@ -1,6 +1,6 @@
-# Claude Vulkan Skill
+# Vulkan-AGENTS
 
-A Claude Code skill that answers Vulkan and MoltenVK questions by referencing locally cloned official repositories, rather than relying solely on training data.
+An agent skill that answers Vulkan and MoltenVK questions by referencing locally cloned official repositories, rather than relying solely on training data. It is agent-agnostic and works with any coding agent that supports skills (Claude Code, Codex, etc.).
 
 ### Reference repos included
 
@@ -14,14 +14,24 @@ A Claude Code skill that answers Vulkan and MoltenVK questions by referencing lo
 
 ## Installation
 
+Install once into the shared agent skills directory, then symlink it into each agent's skills folder.
+
 Clone with `--recurse-submodules` — the reference repos are git submodules:
 
 ```bash
-git clone --recurse-submodules https://github.com/rygo6/Vulkan-AGENTS.git ~/.claude/skills/vulkan
-cd ~/.claude/skills/vulkan
+git clone --recurse-submodules git@github.com:rygo6/Vulkan-AGENTS.git ~/.agents/skills/vulkan
+cd ~/.agents/skills/vulkan
 git submodule update --remote
+```
+
+Then link it into the agents you use:
+
+```bash
+mkdir -p ~/.claude/skills ~/.codex/skills
+ln -s ~/.agents/skills/vulkan ~/.claude/skills/vulkan
+ln -s ~/.agents/skills/vulkan ~/.codex/skills/vulkan
 ```
 
 ## Usage
 
-Once installed open Claude Code and run `/vulkan`.
+Once installed, invoke `/vulkan` from any agent that supports skills.
