@@ -12,6 +12,7 @@ references/Vulkan-Docs/       ← Official Vulkan spec and reference pages
 references/Vulkan-Headers/    ← vulkan.h, vk_platform.h, extension headers
 references/Vulkan-Guide/      ← Best practices and conceptual guides
 references/MoltenVK/          ← MoltenVK source and Metal interop
+references/Vulkan-ValidationLayers/  ← Validation layer source, VUID checks, and docs
 ```
 
 ## How to use the repos
@@ -26,6 +27,11 @@ references/MoltenVK/          ← MoltenVK source and Metal interop
 2. Check `references/MoltenVK/Docs/` for MoltenVK-specific docs and known limitations
 3. Note any Metal/MoltenVK gaps or workarounds that differ from standard Vulkan behavior
 
+### Answering validation / VUID questions
+1. Search `references/Vulkan-ValidationLayers/layers/` for the check implementation
+2. Check `references/Vulkan-ValidationLayers/docs/` for feature docs (best_practices, core_checks, debug_printf, gpu_av, synchronization, etc.)
+3. Use these to explain what a validation error means, which VUID it maps to, and how the layer enforces it
+
 ### Answering conceptual questions
 - Prefer `Vulkan-Guide` for high-level concepts (render passes, synchronization, memory management)
 - Prefer `Vulkan-Docs` for precise spec-level answers
@@ -39,6 +45,7 @@ references/MoltenVK/          ← MoltenVK source and Metal interop
 | Vulkan-Docs | `references/Vulkan-Docs/chapters/`, `appendices/`, `xml/vk.xml` |
 | Vulkan-Guide | `references/Vulkan-Guide/chapters/`, `chapters/extensions/` |
 | MoltenVK | `references/MoltenVK/MoltenVK/`, `Docs/MoltenVK_Runtime_UserGuide.md` |
+| Vulkan-ValidationLayers | `references/Vulkan-ValidationLayers/layers/`, `docs/` |
 
 ## Answering strategy
 

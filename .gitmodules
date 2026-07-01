@@ -18,3 +18,7 @@
 	path = references/Vulkan-Samples
 	url = https://github.com/KhronosGroup/Vulkan-Samples.git
 	branch = main
+[submodule "references/Vulkan-ValidationLayers"]
+	path = references/Vulkan-ValidationLayers
+	url = https://github.com/KhronosGroup/Vulkan-ValidationLayers.git
+	branch = main
