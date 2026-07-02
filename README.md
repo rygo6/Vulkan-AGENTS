@@ -32,6 +32,13 @@ ln -s ~/.agents/skills/vulkan ~/.claude/skills/vulkan
 ln -s ~/.agents/skills/vulkan ~/.codex/skills/vulkan
 ```
 
+On Windows, use `mklink /J` to create a junction instead (run in `cmd`, no admin rights needed):
+
+```bat
+mklink /J "%USERPROFILE%\.claude\skills\vulkan" "%USERPROFILE%\.agents\skills\vulkan"
+mklink /J "%USERPROFILE%\.codex\skills\vulkan"  "%USERPROFILE%\.agents\skills\vulkan"
+```
+
 ## Usage
 
 Once installed, invoke `/vulkan` from any agent that supports skills.
