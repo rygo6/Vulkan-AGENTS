@@ -16,13 +16,18 @@ An agent skill that answers Vulkan and MoltenVK questions by referencing locally
 
 Install once into the shared agent skills directory, then symlink it into each agent's skills folder.
 
-Clone with `--recurse-submodules` — the reference repos are git submodules:
+The reference repos are git submodules. Initialize them one level deep only — they are read-only
+references that are never built, so nested build dependencies are pure overhead:
 
 ```bash
-git clone --recurse-submodules git@github.com:rygo6/Vulkan-AGENTS.git ~/.agents/skills/vulkan
+git clone git@github.com:rygo6/Vulkan-AGENTS.git ~/.agents/skills/vulkan
 cd ~/.agents/skills/vulkan
+git submodule update --init
 git submodule update --remote
 ```
+
+Do not pass `--recursive` or clone with `--recurse-submodules`. Vulkan-Samples alone pulls roughly
+1.6 GB of build dependencies and sample assets that this skill never references.
 
 Then link it into the agents you use:
 
