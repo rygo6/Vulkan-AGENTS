@@ -10,24 +10,27 @@ An agent skill that answers Vulkan and MoltenVK questions by referencing locally
 | `references/Vulkan-Headers` | `vulkan.h`, `vk_platform.h`, extension headers |
 | `references/Vulkan-Guide` | Best practices and conceptual guides |
 | `references/MoltenVK` | MoltenVK source and Metal interop |
-| `references/Vulkan-Samples` | Khronos canonical samples (auxiliary patterns: matrix conventions, pipeline setups, extension demos) |
+| `references/Vulkan-Samples` | Khronos examples for rendering patterns, pipelines, and extensions |
+| `references/Vulkan-ValidationLayers` | Validation checks, VUID enforcement, and layer documentation |
 
 ## Installation
 
 Install once into the shared agent skills directory, then symlink it into each agent's skills folder.
 
-The reference repos are git submodules. Initialize them one level deep only — they are read-only
-references that are never built, so nested build dependencies are pure overhead:
+The reference repositories are Git submodules. Initialize them without nested dependencies for
+source lookup:
 
 ```bash
 git clone git@github.com:rygo6/Vulkan-AGENTS.git ~/.agents/skills/vulkan
 cd ~/.agents/skills/vulkan
 git submodule update --init
-git submodule update --remote
 ```
 
-Do not pass `--recursive` or clone with `--recurse-submodules`. Vulkan-Samples alone pulls roughly
-1.6 GB of build dependencies and sample assets that this skill never references.
+Do not pass `--recursive` or clone with `--recurse-submodules` for source lookup. Vulkan-Samples
+has nested build dependencies and assets that are unnecessary for reading its implementation.
+
+The commands above use the recorded reference revisions. To deliberately refresh existing
+references, review local changes first, then run `git submodule update --remote` and inspect the result.
 
 Then link it into the agents you use:
 
@@ -46,4 +49,4 @@ mklink /J "%USERPROFILE%\.codex\skills\vulkan"  "%USERPROFILE%\.agents\skills\vu
 
 ## Usage
 
-Once installed, invoke `/vulkan` from any agent that supports skills.
+Once installed, request the `vulkan` skill by name or use your agent’s skill picker or invocation syntax.
